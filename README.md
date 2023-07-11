@@ -1,17 +1,17 @@
-## myFlix React app
+# myFlix React app
 
 myFlix is a client-side application built using React, uses the server-side myFlix Rest API and the database (mongo DB atlas).
 
-# Tech Stack used
+## Tech Stack used
 
 MERN (MongoDB, Express, React and Node.js)
 
-# Design Criteria
+## Design Criteria
 
 * The user will be able to access information about movies such as description, director, genre among others.
 * The user will be able to create a profile where they can add their favorite movies to a list and save them. 
 
-# Essential Views & Features
+## Essential Views & Features
 
 Main view
 * Returns ALL movies to the user (each movie item with an image, title, and description)
@@ -37,6 +37,6 @@ Profile view
 * Allows users to remove a movie from their list of favorites
 * Allows existing users to deregister
 
+# Parcel
 
-
-To test the project use in terminal: parcel src/index.html 
+To test the project using Parsel use in terminal: parcel src/index.html 
