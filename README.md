@@ -37,6 +37,6 @@ Profile view
 * Allows users to remove a movie from their list of favorites
 * Allows existing users to deregister
 
-# Parcel
+### Parcel
 
 To test the project using Parsel use in terminal: parcel src/index.html 
