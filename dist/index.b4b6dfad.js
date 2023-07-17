@@ -27176,17 +27176,22 @@ const MainView = ()=>{
         fetch("https://myflix-movies-2a93844126ef.herokuapp.com").then((response)=>response.json()).then((moviesData)=>{
             const moviesFromApi = moviesData.movies.map((movie)=>{
                 return {
-                    id: movie.key,
-                    image: movie.imagePath,
+                    _id: movie.key,
+                    imagePath: movie.imagePath,
                     title: movie.title,
                     description: movie.description,
-                    director: movie.director.name,
-                    bio: movie.director.bio,
-                    birth: movie.director.birth,
-                    death: movie.director.death?.[0],
-                    genre: movie.genre.name,
-                    description: movie.genre.description,
-                    year: movie.year
+                    director: {
+                        name: movie.director.name,
+                        bio: movie.director.bio,
+                        birth: movie.director.birth,
+                        death: movie.director.death?.[0]
+                    },
+                    genre: {
+                        name: movie.genre.name,
+                        description: movie.genre.description
+                    },
+                    year: movie.year,
+                    featured: movie.featured
                 };
             });
             setMovies(moviesFromApi);
@@ -27197,14 +27202,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 35,
+        lineNumber: 40,
         columnNumber: 13
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: " The list is empty! "
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 40,
+        lineNumber: 45,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27215,12 +27220,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 45,
+                lineNumber: 50,
                 columnNumber: 17
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 48,
         columnNumber: 9
     }, undefined);
 };
