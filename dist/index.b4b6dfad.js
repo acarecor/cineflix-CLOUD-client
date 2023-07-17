@@ -27173,10 +27173,10 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com").then((response)=>response.json()).then((moviesData)=>{
-            const moviesFromApi = moviesData.movies.map((movie)=>{
+        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/movies").then((response)=>response.json()).then((moviesData)=>{
+            const moviesFromApi = moviesData.map((movie)=>{
                 return {
-                    _id: movie.key,
+                    id: movie._id,
                     imagePath: movie.imagePath,
                     title: movie.title,
                     description: movie.description,
@@ -28205,8 +28205,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 const MovieView = ({ movie, onBackClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -28397,24 +28395,6 @@ const MovieView = ({ movie, onBackClick })=>{
     }, undefined);
 };
 _c = MovieView;
-MovieView.propTypes = {
-    movie: PropTypes.shape({
-        imagePath: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        director: PropTypes.shape({
-            name: PropTypes.string,
-            bio: PropTypes.string,
-            birth: PropTypes.date
-        }),
-        genre: PropTypes.shape({
-            name: PropTypes.string,
-            description: PropTypes.string
-        }),
-        year: PropTypes.date
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
-};
 var _c;
 $RefreshReg$(_c, "MovieView");
 
@@ -28423,6 +28403,6 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"d3G0W","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fHBM7","prop-types":"7wKI2"}],"lJZlQ":[function() {},{}]},["1BoVa","8S9iZ","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"d3G0W","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fHBM7"}],"lJZlQ":[function() {},{}]},["1BoVa","8S9iZ","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

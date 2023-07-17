@@ -8,12 +8,12 @@ export const MainView = () =>{
     const [selectedMovie, setSelectedMovie] = useState (null);
 
     useEffect(()=> {
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com")
+        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/movies")
         .then ((response)=> response.json())
         .then((moviesData) => {
-            const moviesFromApi = moviesData.movies.map((movie) => {
+            const moviesFromApi = moviesData.map((movie) => {
                 return {
-                    _id: movie.key,
+                    id: movie._id,
                     imagePath: movie.imagePath,
                     title: movie.title,
                     description: movie.description,
@@ -25,7 +25,7 @@ export const MainView = () =>{
                     } ,
                     genre: { 
                         name: movie.genre.name,
-                        description: movie.genre.description
+                        description: movie.genre.description,
                     },
                     year: movie.year,
                     featured: movie.featured

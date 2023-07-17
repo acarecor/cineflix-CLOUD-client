@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+
 
 export const MovieView = ({ movie, onBackClick }) => {
     return (
@@ -36,19 +36,4 @@ export const MovieView = ({ movie, onBackClick }) => {
     );
 };
 
-MovieView.propTypes = {
-    movie: PropTypes.shape({
-        imagePath: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        director: PropTypes.shape({
-            name: PropTypes.string, 
-            bio:PropTypes.string,
-            birth: PropTypes.date}),
-        genre: PropTypes.shape({
-            name:PropTypes.string,
-            description: PropTypes.string}),
-        year: PropTypes.date
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
-};
+
