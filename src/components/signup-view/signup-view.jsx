@@ -1,80 +1,89 @@
-import {useState} from "react";
+import { useState } from "react";
+import { Button, Form, Container} from "react-bootstrap";
 
-export const SignupView =() => {
-    const[username, setUsername] = useState ("");
-    const[password, setPassword] = useState ("");
-    const[email, setEmail] = useState("");
-    const[birthday, setBirthday]= useState("");
-    
-    
-    const handleSubmit =(event)=>{
-        event.preventDefault();
+export const SignupView = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthday, setBirthday] = useState("");
 
-        const data= {
-            username: username,
-            password: password,
-            email:email,
-            birthday:birthday
-        };
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/users",{
-           method: "POST",
-           headers: {
-            "Content-Type":"application/json"
-           },
-           body: JSON.stringify(data)
-        })
-        .then ((response) => {
-            if (response.ok) {
-                alert("Signup successful");
-                window.location.reload();
-            } else {
-                alert ("Signup failed");
-            }
-        });
+    const data = {
+      username: username,
+      password: password,
+      email: email,
+      birthday: birthday,
     };
 
-    return (
-        <form onSubmit = { handleSubmit}>
-            <label>
-                Username:
-                <input 
-                    type="text"
-                    value= {username}
-                    onChange={(e)=> setUsername(e.target.value)}
-                    minLength="5"
-                    required
-                />
-            </label>
-            <label>
-                Password:
-                <input
-                    type ="password"
-                    value={password}
-                    onChange={(e)=> setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Email:
-                <input
-                    type ="email"
-                    value={email}
-                    onChange={(e)=> setEmail(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Birthday:
-                <input
-                    type ="date"
-                    value={birthday}
-                    onChange={(e)=> setBirthday(e.target.value)}
-                    required
-                />
-            </label>
+    fetch("https://myflix-movies-2a93844126ef.herokuapp.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((response) => {
+      if (response.ok) {
+        alert("Signup successful");
+        window.location.reload();
+      } else {
+        alert("Signup failed");
+      }
+    });
+  };
 
-            <button type="submit">Submit</button>
-        </form>
-    );
+  return (
+    <Container className="mt-5">
+        <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="signUpFormUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            minLength="5"
+            required
+            placeholder="Username must be 5 or more characters"
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="signUpFormPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Create a Password"
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="signUpFormEmail">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="Enter your Email"
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="signUpFormBirthday">
+            <Form.Label>Birthday:</Form.Label>
+            <Form.Control
+            type="date"
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+            required
+            />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+            Submit
+        </Button>
+        </Form>
+    </Container>
+  );
 };
