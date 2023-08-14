@@ -9,9 +9,10 @@ export const MovieView = ({ movies, user, setUser, token }) => {
     const [ favoritesMovies, setFavoritesMovies ] = useState(false);
 
     useEffect(()=> {
-      if(user?.favoritesMovies?.length && movieId)
-      { setFavoritesMovies (user.favoritesMovies.includes(movieId));
-      }}, [user, favoritesMovies, movieId]);
+      if(user.favoritesMovies &&  user.favoritesMovies.includes(movieId))
+      {
+         setFavoritesMovies(true);}
+      }, []);
 
       const addFav= (event)=> {
         event.preventDefault();
