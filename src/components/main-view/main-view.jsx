@@ -180,7 +180,7 @@ export const MainView = () => {
                     <Col
                       className="mb-5"
                       //key={user.username}
-                      md={3}
+                      
                     >
                       <ProfileView
                         user={user}

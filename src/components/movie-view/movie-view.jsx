@@ -78,11 +78,11 @@ export const MovieView = ({ movies, user, setUser, token}) => {
         <Card.Text>Year: {movie.year}</Card.Text>
         <>
           {favoritesMovies ? (
-                <Button variant="secondary" onClick={removeFav} >
+                <Button variant="primary" onClick={removeFav} style={{ cursor: "pointer"}} >
                   Remove from List
                 </Button>
           ) : (
-                <Button variant="secondary" onClick={addFav}>
+                <Button variant="primary" onClick={addFav} style={{ cursor: "pointer"}}>
                   Add to List
                 </Button>
               
