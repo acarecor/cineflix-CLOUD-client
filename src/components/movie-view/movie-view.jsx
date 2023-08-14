@@ -48,7 +48,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
         })
           .then((response) => response.json())
           .then((data) => {
-            setFav(false);
+            setFavoritesMovies(false);
             user.favoritesMovies = user.favoritesMovies.filter(id => id!== movieId); 
             localStorage.setItem("user", JSON.stringify(user));
             setUser(user);
