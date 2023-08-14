@@ -17,22 +17,22 @@ export const ProfileView = ({
   const [birthday, setBirthday] = useState(user.birthday);
 
   const favoriteMovies = movies.filter((movie) => {
-    return user.favoritesMovies.includes(movie._id);
+    return user.favoritesMovies.includes(movie.id);
   });
 
   //Update a user account
-  const handleSubmit = (event, updatedUser) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday,
+      username: username,
+      password: password,
+      email: email,
+      birthday: birthday,
     };
 
     fetch(
-      "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}",
+      `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -61,7 +61,7 @@ export const ProfileView = ({
   //Delete a user account function
   const handleDeleteUser = () => {
     fetch(
-      "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}",
+      `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}`,
       {
         method: "DELETE",
         headers: {
