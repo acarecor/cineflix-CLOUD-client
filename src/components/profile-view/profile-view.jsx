@@ -80,73 +80,80 @@ export const ProfileView = ({
   };
 
   return (
-    <>
-      <Card>
-        <Row className="mb-5 mt-2">
-          <h2>Profile</h2>
-          <Col>
-            <div>Hey {user.username}!</div>
-            <div> Email: {user.email}</div>
-          </Col>
-        </Row>
-      </Card>
-      <Card>
-        <Form className="profile-form" onSubmit={(e) => handleSubmit(e)}>
-          <h2>Want to change some Info?</h2>
-          <Form.Group>
-            <Form.Label>Username:</Form.Label>
-            <Form.Control
-              type="text"
-              name="Username"
-              defaultValue={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="text"
-              password="password"
-              defaultValue={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="text"
-              email="email"
-              defaultValue={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Birthday</Form.Label>
-            <Form.Control
-              type="date"
-              birthday="birthday"
-              defaultValue={birthday}
-              onChange={(e) => setBirthday(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-          <Button variant="primary" onClick={handleDeleteUser}>
-            Delete User
-          </Button>
-        </Form>
-      </Card>
-      <Card>
+    <Container>
+      <Row>
+        <Col xs={12} sm={4}>
+          <Card>
+            <Card.Body>
+            <h3>Your Info</h3>
+          <div>Username: {user.username}!</div>
+          <div>e-mail: {user.email}</div>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col xs={12} sm={8}>
+          <Card>
+            <Card.Body>
+            <Form className="profile-form" onSubmit={(e) => handleSubmit(e)}>
+              <h4>Want to change some Info?</h4>
+              <Form.Group>
+                <Form.Label>Username:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="Username"
+                  defaultValue={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="text"
+                  password="password"
+                  defaultValue={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="text"
+                  email="email"
+                  defaultValue={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Birthday</Form.Label>
+                <Form.Control
+                  type="date"
+                  birthday="birthday"
+                  defaultValue={birthday}
+                  onChange={(e) => setBirthday(e.target.value)}
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+              <Button variant="primary" onClick={handleDeleteUser}>
+                Delete User
+              </Button>
+            </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      <>
         <Row>
           <h2>Favorites Movies</h2>
           {favoriteMovies.map((movie) => (
-            <Col key={movie.id}>
+            <Col key={movie.id} md={6} lg={4}>
               <MovieCard movie={movie}></MovieCard>
             </Col>
           ))}
         </Row>
-      </Card>
-    </>
+      </>
+    </Container>
   );
 };
