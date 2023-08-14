@@ -13,29 +13,6 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       { setFavoritesMovies (user.favoritesMovies.includes(movieId));
       }}, [user, favoritesMovies, movieId]);
 
-      const removeFav = () => {
-        fetch(
-          "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}",
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            setFav(false);
-            user.favoritesMovies = user.favoritesMovies.filter(id => id!== movieId); 
-            localStorage.setItem("user", JSON.stringify(user));
-            setUser(user);
-            alert("movie was deleted from your list!");
-          })
-          .catch((error) => {
-            alert("Something is wrong");
-          });
-      };  
-
       const addFav= (event)=> {
         event.preventDefault();
           fetch(
@@ -43,7 +20,6 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             {
               method: "POST",
               headers: {
-                "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
               },
             }
@@ -60,6 +36,30 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             });
           
       };
+      
+      const removeFav = () => {
+        fetch(
+          "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}",
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setFav(false);
+            user.favoritesMovies = user.favoritesMovies.filter(id => id!== movieId); 
+            localStorage.setItem("user", JSON.stringify(user));
+            setUser(user);
+            alert("movie was deleted from your list!");
+          })
+          .catch((error) => {
+            alert("Something is wrong");
+          });
+      };  
+
+      
     
   const movie = movies.find((b)=> b.id === movieId);
 
