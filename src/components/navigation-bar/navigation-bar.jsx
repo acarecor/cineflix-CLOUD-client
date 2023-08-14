@@ -1,12 +1,13 @@
 import { Navbar, Container, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import  './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
   return (
-    <Navbar  className="justify-content-between" bg="light" expand="lg">
+    <Navbar  className="justify-content-between"   data-bs-theme="dark"  expand="lg" fluid>
       <Container>
         <Navbar.Brand as={Link} to="/">
-          My Flix
+          <h1>my Flix</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -36,6 +37,7 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
                     type="text"
                     placeholder="Search by title"
                     onChange={handleSearchInput}
+                    style= {{background: "Oldlace" , color: "black"}}
                   />
                 </Form>
               </>
