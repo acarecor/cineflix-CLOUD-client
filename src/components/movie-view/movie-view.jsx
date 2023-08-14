@@ -25,7 +25,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             }
           ).then((response) => response.json())
           .then((data) => {
-            setFav(true);
+            setFavoritesMovies(true);
             user.favoritesMovies.push(movieId); 
             localStorage.setItem("user", JSON.stringify(user));
             setUser(user);
@@ -36,7 +36,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             });
           
       };
-      
+
       const removeFav = () => {
         fetch(
           "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}",
