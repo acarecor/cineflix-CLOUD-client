@@ -30,6 +30,7 @@ export const MainView = () => {
     localStorage.clear();
   };
 
+  //get all movies
   useEffect(() => {
     if (!token) {
       return;
@@ -65,10 +66,12 @@ export const MainView = () => {
       });
   }, [token]);
 
+  //search movies by title
   useEffect(() => {
     setFilteredMovies(movies);
   }, [movies]);
 
+  //search movies by title
   const handleSearchInput = (e) => {
     const searchWord = e.target.value.toLowerCase();
     let tempArray = movies.filter((movie) =>
