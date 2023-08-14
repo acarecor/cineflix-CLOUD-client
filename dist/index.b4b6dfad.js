@@ -27187,8 +27187,8 @@ const MainView = ()=>{
     _s();
     const storedUser = localStorage.getItem("user");
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = (0, _react.useState)(null);
-    const [token, setToken] = (0, _react.useState)(null);
+    const [user, setUser] = (0, _react.useState)(storedUser);
+    const [token, setToken] = (0, _react.useState)(storedToken);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [filteredMovies, setFilteredMovies] = (0, _react.useState)([]);
     const updatedUser = (user)=>{
@@ -27392,7 +27392,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "JGgjAME5vL5/g0i7JluAE4tuCrY=");
+_s(MainView, "rDa/SCKz5ZaYdtJDv3eP9Ksj340=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -46945,7 +46945,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
     }, []);
     const addFav = (event)=>{
         event.preventDefault();
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${movieId}", {
+        fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${movieId}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -46960,7 +46960,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
         });
     };
     const removeFav = ()=>{
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}", {
+        fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -46984,7 +46984,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                 src: movie.imagePath
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 69,
+                lineNumber: 67,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -46996,21 +46996,21 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 72,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
                         children: "Description:"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 73,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: movie.description
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 74,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
@@ -47020,7 +47020,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 75,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
@@ -47030,7 +47030,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 76,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
@@ -47040,7 +47040,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 77,
+                        lineNumber: 75,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
@@ -47050,14 +47050,14 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 78,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: movie.genre.description
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 79,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
@@ -47067,7 +47067,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 80,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -47077,7 +47077,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                             children: "Remove from List"
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 83,
+                            lineNumber: 81,
                             columnNumber: 17
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                             variant: "secondary",
@@ -47085,7 +47085,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                             children: "Add to List"
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 87,
+                            lineNumber: 85,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false),
@@ -47099,24 +47099,24 @@ const MovieView = ({ movies, user, setUser, token })=>{
                             children: "Back"
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 95,
+                            lineNumber: 93,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 94,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 71,
+                lineNumber: 69,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/movie-view/movie-view.jsx",
-        lineNumber: 68,
+        lineNumber: 66,
         columnNumber: 5
     }, undefined);
 };
@@ -47622,18 +47622,18 @@ const ProfileView = ({ user, updatedUser, token, movies, onLoggedOut })=>{
     const [email, setEmail] = (0, _react.useState)(user.email);
     const [birthday, setBirthday] = (0, _react.useState)(user.birthday);
     const favoriteMovies = movies.filter((movie)=>{
-        return user.favoritesMovies.includes(movie._id);
+        return user.favoritesMovies.includes(movie.id);
     });
     //Update a user account
-    const handleSubmit = (event, updatedUser)=>{
+    const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
+            username: username,
+            password: password,
+            email: email,
+            birthday: birthday
         };
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}", {
+        fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -47650,7 +47650,7 @@ const ProfileView = ({ user, updatedUser, token, movies, onLoggedOut })=>{
     };
     //Delete a user account function
     const handleDeleteUser = ()=>{
-        fetch("https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}", {
+        fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

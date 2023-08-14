@@ -4,20 +4,20 @@ import { useParams } from "react-router-dom";
 import {Link} from "react-router-dom";
 
 
-export const MovieView = ({ movies, user, setUser, token }) => {
+export const MovieView = ({ movies, user, setUser, token}) => {
     const { movieId } = useParams();
     const [ favoritesMovies, setFavoritesMovies ] = useState(false);
 
     useEffect(()=> {
       if(user.favoritesMovies &&  user.favoritesMovies.includes(movieId))
       {
-         setFavoritesMovies(true);}
+        setFavoritesMovies(true);}
       }, []);
 
       const addFav= (event)=> {
         event.preventDefault();
           fetch(
-            "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${movieId}",
+            `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${movieId}`,
             {
               method: "POST",
               headers: {
@@ -40,7 +40,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
 
       const removeFav = () => {
         fetch(
-          "https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}",
+          `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}`,
           {
             method: "DELETE",
             headers: {
@@ -58,9 +58,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
           .catch((error) => {
             alert("Something is wrong");
           });
-      };  
-
-      
+      };        
     
   const movie = movies.find((b)=> b.id === movieId);
 
