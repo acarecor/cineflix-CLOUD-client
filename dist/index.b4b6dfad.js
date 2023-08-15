@@ -47724,8 +47724,7 @@ const ProfileView = ({ user, updatedUser, token, movies, onLoggedOut })=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         children: [
                                             "Username: ",
-                                            user.username,
-                                            "!"
+                                            user.username
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/profile-view/profile-view.jsx",

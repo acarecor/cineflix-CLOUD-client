@@ -86,7 +86,7 @@ export const ProfileView = ({
           <Card className="mb-3">
             <Card.Body className="mb-3">
             <h3>Your Info</h3>
-          <div>Username: {user.username}!</div>
+          <div>Username: {user.username}</div>
           <div>e-mail: {user.email}</div>
             </Card.Body>
           </Card>
