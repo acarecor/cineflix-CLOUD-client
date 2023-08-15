@@ -59,7 +59,7 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
         alert("movie was deleted from your list!");
-        window.location.reload();
+        
       })
       .catch((error) => {
         alert("Something is wrong");
