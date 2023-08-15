@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Button, Card, Container, Form, Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
+
+
 
 export const ProfileView = ({
   user,
@@ -17,7 +18,7 @@ export const ProfileView = ({
   const [birthday, setBirthday] = useState(user.birthday);
 
   const favoriteMovies = movies.filter((movie) => {
-    return user.favoritesMovies.includes(movie.id);
+    return user.favoritesMovies.includes(movie.id)
   });
 
   //Update a user account
