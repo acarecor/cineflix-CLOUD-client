@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Button, Card, Container, Form, Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
+import { Modal } from "react-bootstrap";
 
 
 
@@ -16,6 +17,7 @@ export const ProfileView = ({
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.email);
   const [birthday, setBirthday] = useState(user.birthday);
+  const [showModal, setShowModal] = useState(false);
 
   const favoriteMovies = movies.filter((movie) =>  user.favoritesMovies.includes(movie.id)
   );
@@ -58,6 +60,11 @@ export const ProfileView = ({
         console.error(err);
       });
   };
+
+  
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
+  
   //Delete a user account function
   const handleDeleteUser = () => {
     fetch(
@@ -139,9 +146,26 @@ export const ProfileView = ({
                 </Button>
               </Col> 
               <Col>
-                <Button variant="primary" onClick={handleDeleteUser}>
-                  Delete User
+              <>
+                <Button variant="primary" onClick={handleShowModal}>
+                    Delete account
                 </Button>
+
+                  <Modal show={showModal} onHide={handleCloseModal} animation={false}>
+                    <Modal.Header closeButton>
+                    </Modal.Header>
+                    <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="primary" onClick={handleCloseModal}>
+                        Close
+                      </Button>
+                      <Button variant="primary" onClick={handleDeleteUser}>
+                        Delete User
+                      </Button>
+                      
+                    </Modal.Footer>
+                  </Modal>
+                </>
               </Col>
               </Row>
             </Form>
