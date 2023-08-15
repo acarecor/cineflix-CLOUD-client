@@ -12,6 +12,7 @@ export const ProfileView = ({
   token,
   movies,
   onLoggedOut,
+  setUser
 }) => {
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState("");
@@ -181,7 +182,12 @@ export const ProfileView = ({
           </Row>
           {favoriteMovies.map((movie) => (
             <Col  className="mb-5 mt-2" key={movie.id} md={6} lg={4}>
-              <MovieCard movie={movie}></MovieCard>
+              <MovieCard movie={movie}
+                        user={user}
+                        setUser={setUser}
+                        token={token}>
+
+                        </MovieCard>
             </Col>
           ))}
         </Row>
