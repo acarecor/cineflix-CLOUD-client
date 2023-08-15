@@ -6,14 +6,15 @@ export const MovieCard = ( { movie }) => {
     return (
         <Card className="h-100">
             <Card.Img className="h-100" variant="top" src={movie.imagePath} />
-            <Card.Body>
-                <Card.Title> {movie.title}</Card.Title>
-                <Card.Text>{movie.director.name}</Card.Text>
-                <Card.Text>{movie.year}</Card.Text>
-                <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+            <Card.Body >
+                <Card.Title className="d-flex justify-content-center"> {movie.title}</Card.Title>
+                <Card.Text className="d-flex justify-content-center">{movie.director.name}</Card.Text>
+                <Card.Text className="d-flex justify-content-center">{movie.year}</Card.Text>
+                
+                <Link className="d-flex justify-content-center" to={`/movies/${encodeURIComponent(movie.id)}`}>
                     <Button variant="primary">Open</Button>
                 </Link>
-                <Button>add</Button>
+                
             </Card.Body>
 
         </Card>

@@ -17,9 +17,8 @@ export const ProfileView = ({
   const [email, setEmail] = useState(user.email);
   const [birthday, setBirthday] = useState(user.birthday);
 
-  const favoriteMovies = movies.filter((movie) => {
-    return user.favoritesMovies.includes(movie.id)
-  });
+  const favoriteMovies = movies.filter((movie) =>  user.favoritesMovies.includes(movie.id)
+  );
 
   //Update a user account
   const handleSubmit = (event) => {
@@ -82,10 +81,10 @@ export const ProfileView = ({
 
   return (
     <Container>
-      <Row>
+      <Row className="mt-5">
         <Col xs={12} sm={4}>
-          <Card>
-            <Card.Body>
+          <Card className="mb-3">
+            <Card.Body className="mb-3">
             <h3>Your Info</h3>
           <div>Username: {user.username}!</div>
           <div>e-mail: {user.email}</div>
@@ -94,10 +93,10 @@ export const ProfileView = ({
         </Col>
         <Col xs={12} sm={8}>
           <Card>
-            <Card.Body>
+            <Card.Body className="mb-3">
             <Form className="profile-form" onSubmit={(e) => handleSubmit(e)}>
               <h4>Want to change some Info?</h4>
-              <Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="text"
@@ -106,7 +105,7 @@ export const ProfileView = ({
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="text"
@@ -115,7 +114,7 @@ export const ProfileView = ({
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"
@@ -124,7 +123,7 @@ export const ProfileView = ({
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label>Birthday</Form.Label>
                 <Form.Control
                   type="date"
@@ -133,12 +132,18 @@ export const ProfileView = ({
                   onChange={(e) => setBirthday(e.target.value)}
                 />
               </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-              <Button variant="primary" onClick={handleDeleteUser}>
-                Delete User
-              </Button>
+              <Row  >
+               <Col > 
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Col> 
+              <Col>
+                <Button variant="primary" onClick={handleDeleteUser}>
+                  Delete User
+                </Button>
+              </Col>
+              </Row>
             </Form>
             </Card.Body>
           </Card>
@@ -146,10 +151,12 @@ export const ProfileView = ({
       </Row>
 
       <>
-        <Row>
+        <Row className="mt-5">
+          <Row >
           <h2>Favorites Movies</h2>
+          </Row>
           {favoriteMovies.map((movie) => (
-            <Col key={movie.id} md={6} lg={4}>
+            <Col  className="mb-5 mt-2" key={movie.id} md={6} lg={4}>
               <MovieCard movie={movie}></MovieCard>
             </Col>
           ))}

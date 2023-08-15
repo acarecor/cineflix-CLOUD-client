@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import {Link} from "react-router-dom";
 
@@ -76,27 +76,32 @@ export const MovieView = ({ movies, user, setUser, token}) => {
         <Card.Title> Genre: {movie.genre.name}</Card.Title>
         <Card.Text>{movie.genre.description}</Card.Text>
         <Card.Text>Year: {movie.year}</Card.Text>
-        <>
-          {favoritesMovies ? (
-                <Button variant="primary" onClick={removeFav} style={{ cursor: "pointer"}} >
-                  Remove from List
-                </Button>
-          ) : (
-                <Button variant="primary" onClick={addFav} style={{ cursor: "pointer"}}>
-                  Add to List
-                </Button>
-              
-            )}
-        </>
-
-        <Link to={`/`}>
-            <Button
-                variant="primary"
-                style={{ cursor: "pointer" }}
-            >
-                Back
-            </Button>
-        </Link>
+        <Row >
+          <Col >
+           
+              {favoritesMovies ? (
+                    <Button variant="primary" onClick={removeFav} style={{ cursor: "pointer"}} >
+                      Remove from Favorites
+                    </Button>
+              ) : (
+                    <Button variant="primary" onClick={addFav} style={{ cursor: "pointer"}}>
+                      Add to Favorites
+                    </Button>
+                  
+                )}
+           
+            </Col>
+            <Col className="d-flex justify-content-right">
+              <Link to={`/`}>
+                  <Button
+                      variant="primary"
+                      style={{ cursor: "pointer" }}
+                  >
+                      Back
+                  </Button>
+              </Link>
+            </Col>
+        </Row>
       </Card.Body>
     </Card>
   );
