@@ -12,7 +12,8 @@ export const ProfileView = ({
   token,
   movies,
   onLoggedOut,
-  setUser
+  setUser,
+  movie
 }) => {
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState("");

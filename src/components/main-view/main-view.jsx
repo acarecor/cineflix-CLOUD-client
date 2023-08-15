@@ -190,6 +190,7 @@ export const MainView = () => {
                         updatedUser={updatedUser}
                         movies={movies}
                         onLoggedOut={onLoggedOut}
+                        setUser={setUser}
                       />
                     </Col>
                   </>
