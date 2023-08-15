@@ -40,7 +40,7 @@ export const MovieView = ({ movies, user, setUser, token}) => {
 
       const removeFav = () => {
         fetch(
-          `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${moviesId}`,
+          `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}/movies/${movieId}`,
           {
             method: "DELETE",
             headers: {
