@@ -37,7 +37,7 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
                     type="text"
                     placeholder="Search by title"
                     onChange={handleSearchInput}
-                    style= {{background: "Oldlace" , color: "black"}}
+                    style= {{background: "black" }}
                   />
                 </Form>
               </>

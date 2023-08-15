@@ -2950,6 +2950,7 @@ var _containerDefault = parcelHelpers.interopDefault(_container);
 var _indexScss = require("./index.scss");
 const MyFlixApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
+        fluid: true,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
             fileName: "src/index.jsx",
             lineNumber: 10,
@@ -47576,8 +47577,7 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput })=>{
                                             placeholder: "Search by title",
                                             onChange: handleSearchInput,
                                             style: {
-                                                background: "Oldlace",
-                                                color: "black"
+                                                background: "black"
                                             }
                                         }, void 0, false, {
                                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
