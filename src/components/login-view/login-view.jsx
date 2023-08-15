@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Form, Container} from "react-bootstrap";
+import { Button, Form, Container, Row, Col} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -61,12 +62,18 @@ export const LoginView = ({ onLoggedIn }) => {
             placeholder="Password"
           />
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <Row >
+          <Col className="d-flex justify-content-center">
+          <Button  variant="primary" type="submit">
+            Submit
+          </Button>
+          </Col>
+        </Row>
       </Form>
-      
+      <p className="d-flex justify-content-center"> or </p>
+      <Link className="d-flex justify-content-center" as={Link} to="/signup">
+        <Button variant="primary">You don't have an account? Create one</Button>
+      </Link>
     </Container>
   );
 };
