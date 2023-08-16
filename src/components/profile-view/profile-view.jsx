@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Button, Card, Container, Form, Row, Col } from "react-bootstrap";
+import { Button, Card, Container, Form, Row, Col, Accordion } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { Modal } from "react-bootstrap";
 
@@ -148,7 +148,8 @@ export const ProfileView = ({
                   Submit
                 </Button>
               </Col> 
-              <Col>
+              <Col> </Col>
+              <Col >
               <>
                 <Button variant="primary" onClick={handleShowModal}>
                     Delete account
@@ -179,8 +180,8 @@ export const ProfileView = ({
 
       <>
         <Row className="mt-5">
-          <Row >
-          <h2>Favorites Movies</h2>
+          <Row  >
+          <h2 className="d-flex justify-content-center">Favorites Movies</h2>
           </Row>
           {favoriteMovies.map((movie) => (
             <Col  className="mb-5 mt-2" key={movie.id} md={6} lg={4}>
