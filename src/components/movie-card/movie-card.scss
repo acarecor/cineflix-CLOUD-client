@@ -2,6 +2,13 @@ $primary: rgb(45, 11, 11);
 $body-bg: rgb(235, 228, 214);
 $secondary: white;
 
-.card-header {
-    background: black;
+.full-heart {
+    width: 1.5em;
+    height: auto;
+    position: relative;
+}
+.empty-heart {
+    width: 1.5em;
+    height: auto;
+    position: relative;
 }
