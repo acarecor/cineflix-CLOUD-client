@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { GoHeart, GoHeartFill} from "react-icons/go";
+import { FcLike } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 import './movie-card.scss';
 
@@ -34,7 +36,13 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
         user.favoritesMovies.push(movie.id);
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
-        alert("Movie was added to your list!");
+        Swal.fire({
+          position:'top-end',
+          icon:"success",
+          text: "Movie added to your Favorites",
+          showConfirmButton: false,
+          timer:1500
+        });
          return console.log (user.favoritesMovies);
          
       })
@@ -61,8 +69,13 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
           );
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
-        alert("movie was deleted from your list!");
-        
+          Swal.fire({
+            position:'top-end',
+            icon:"error",
+            text: "Movie deleted from your Favorite's list!",
+            showConfirmButton: false,
+            timer:1000
+          });
       })
       .catch((error) => {
         alert("Something is wrong");
@@ -76,20 +89,21 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
      <Card.Header className="d-flex justify-content-right">
      <>
      {favoritesMovies ? (
-       <GoHeartFill
-         onClick={removeFav}
-         style={{ cursor: "pointer" }}
-         className="h-5 w-5"
-       >
-       </GoHeartFill>
+          <FcLike
+            onClick={removeFav}
+            style={{ cursor: "pointer" }}
+            className="full-heart"
+          >
+          </FcLike>
      ) : (
+      <>
        <GoHeart
          onClick={addFav}
          style={{ cursor: "pointer" }}
-         className="h-5 w-5"
+         className="empty-heart"
        >
-         
        </GoHeart>
+       </>
      )}
    </>
    </Card.Header>
