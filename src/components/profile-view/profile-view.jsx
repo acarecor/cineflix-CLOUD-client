@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Button, Card, Container, Form, Row, Col, Accordion } from "react-bootstrap";
+import { Button, Card, Container, Form, Row, Col} from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { Modal } from "react-bootstrap";
 
