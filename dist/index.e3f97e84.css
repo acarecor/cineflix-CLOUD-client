@@ -1,7 +1,23 @@
 .full-heart, .empty-heart {
-  width: 1.5em;
+  width: 1.8em;
   height: auto;
+  position: absolute;
+  right: 1em;
+}
+
+.card-header {
+  height: 3em;
   position: relative;
+}
+
+.movie-view-card {
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  bottom: .5rem;
+  right: 1rem;
 }
 
 .navbar {
@@ -13,8 +29,23 @@
   flex-grow: 0;
 }
 
-.footer {
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 60px;
   position: relative;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
 }
 
 :root, [data-bs-theme="light"] {

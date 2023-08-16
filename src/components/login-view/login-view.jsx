@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, Container, Row, Col} from "react-bootstrap";
+import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -29,11 +29,11 @@ export const LoginView = ({ onLoggedIn }) => {
           onLoggedIn(data.user, data.token);
         } else {
           Swal.fire({
-            position:'top-end',
-            icon: 'error',
-            title: 'User no found!',
+            position: "top-end",
+            icon: "error",
+            title: "User no found!",
             showConfirmButton: false,
-            timer:1500
+            timer: 1500,
           });
         }
       })
@@ -44,43 +44,49 @@ export const LoginView = ({ onLoggedIn }) => {
 
   return (
     <Container className="mt-5">
-      
-      <Form onSubmit={handleSubmit}>
-        
-        <Form.Group className="mb-3" controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            minLength="5"
-            required
-            placeholder="Enter your Username"
-          />
-        </Form.Group>
+      <Card>
+        <Card.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formUsername">
+              <Form.Label>Username:</Form.Label>
+              <Form.Control
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                minLength="5"
+                required
+                placeholder="Enter your Username"
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Row >
-          <Col className="d-flex justify-content-center">
-          <Button  variant="primary" type="submit">
-            Log in
-          </Button>
-          </Col>
-        </Row>
-      </Form>
-      <p className="d-flex justify-content-center"> or </p>
-      <Link className="d-flex justify-content-center" as={Link} to="/signup">
-        <Button variant="secondary">Create new account</Button>
-      </Link>
+            <Form.Group className="mb-3" controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Password"
+              />
+            </Form.Group>
+            <Row>
+              <Col className="d-flex justify-content-center">
+                <Button variant="primary" type="submit">
+                  Log in
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+          <p className="d-flex justify-content-center mt-1"> or </p>
+          <Link
+            className="d-flex justify-content-center"
+            as={Link}
+            to="/signup"
+          >
+            <Button variant="secondary" >Create new account</Button>
+          </Link>
+        </Card.Body>
+      </Card>
     </Container>
   );
 };
