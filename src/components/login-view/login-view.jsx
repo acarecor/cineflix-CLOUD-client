@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Form, Container, Row, Col} from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -27,7 +28,13 @@ export const LoginView = ({ onLoggedIn }) => {
           localStorage.setItem("token", data.token);
           onLoggedIn(data.user, data.token);
         } else {
-          alert("No such user");
+          Swal.fire({
+            position:'top-end',
+            icon: 'error',
+            title: 'User no found!',
+            showConfirmButton: false,
+            timer:1500
+          });
         }
       })
       .catch((e) => {
