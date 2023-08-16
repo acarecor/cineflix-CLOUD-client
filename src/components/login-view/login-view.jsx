@@ -65,14 +65,14 @@ export const LoginView = ({ onLoggedIn }) => {
         <Row >
           <Col className="d-flex justify-content-center">
           <Button  variant="primary" type="submit">
-            Submit
+            Log in
           </Button>
           </Col>
         </Row>
       </Form>
       <p className="d-flex justify-content-center"> or </p>
       <Link className="d-flex justify-content-center" as={Link} to="/signup">
-        <Button variant="primary">You don't have an account? Create one</Button>
+        <Button variant="secondary">Create new account</Button>
       </Link>
     </Container>
   );
