@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import "./movie-view.scss";
+
 import { Button, Card, Row, Col, Accordion } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { GoPlus} from "react-icons/go";
+
 
 export const MovieView = ({ movies, user, setUser, token }) => {
   const { movieId } = useParams();
@@ -10,14 +11,15 @@ export const MovieView = ({ movies, user, setUser, token }) => {
   const movie = movies.find((b) => b.id === movieId);
 
   return (
-    <Card className="h-100">
-      <Card.Img variant="top" src={movie.imagePath} />
+    <Card className="h-100 mt-3">
+      <Card.Img variant="top" src={movie.imagePath} alt={movie.title} />
 
-      <Card.Body>
-        <Card.Title> {movie.title}</Card.Title>
+      <Card.Body className="movie-view-card">
+        <Card.Title ><h2>{movie.title}</h2></Card.Title>
+        <Card.Text>Year of release: {movie.year}</Card.Text>
         <Card.Title>Description:</Card.Title>
         <Card.Text>{movie.description}</Card.Text>
-        <Accordion defaultActiveKey="0">
+        <Accordion defaultActiveKey="0" className="border-none">
           <Accordion.Item eventKey="1">
             <Accordion.Header>Director: {movie.director.name}</Accordion.Header>
              <Accordion.Body>
@@ -32,16 +34,13 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        <Card.Text>Realese Year: {movie.year}</Card.Text>
-        <Row>
-          
-          <Col className="d-flex justify-content-right">
+        
+        <Row className="mt-4 mb-0.5">
             <Link to={`/`}>
-              <Button variant="primary" style={{ cursor: "pointer" }}>
+              <Button className="back-btn" variant="primary" style={{ cursor: "pointer" }}>
                 Back
               </Button>
             </Link>
-          </Col>
         </Row>
       </Card.Body>
     </Card>
