@@ -7,8 +7,9 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 
-import { Row, Col, Navbar, Nav, Button, Form, Card } from "react-bootstrap";
+import { Row, Col, Navbar, Nav, Button, Form, Card, Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./main-view.scss";
 
 export const MainView = () => {
   const storedUser = localStorage.getItem("user");
@@ -63,6 +64,7 @@ export const MainView = () => {
           };
         });
         setMovies(moviesFromApi);
+
       });
   }, [token]);
 
@@ -93,6 +95,7 @@ export const MainView = () => {
         }}
         handleSearchInput={handleSearchInput}
       />
+      <Container>
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -200,7 +203,8 @@ export const MainView = () => {
           />
         </Routes>
       </Row>
-      <Row><footer> MyFlix App all Rights reserved</footer></Row>
+      </Container>
+      <footer> MyFlix App all Rights reserved</footer>
     </BrowserRouter>
   );
 };
