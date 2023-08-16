@@ -86,7 +86,7 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
 
   return (
     <Card className="h-100">
-     <Card.Header className="d-flex justify-content-right">
+     <Card.Header className="h-5">
      <>
      {favoritesMovies ? (
           <FcLike
@@ -96,14 +96,14 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
           >
           </FcLike>
      ) : (
-      <>
+      
        <GoHeart
          onClick={addFav}
          style={{ cursor: "pointer" }}
          className="empty-heart"
        >
        </GoHeart>
-       </>
+       
      )}
    </>
    </Card.Header>
@@ -116,7 +116,7 @@ export const MovieCard = ({ movie, user, setUser, token}) => {
        <Row>
         <Col>
         <Link
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-center mt-2"
           to={`/movies/${encodeURIComponent(movie.id)}`}
         >
           <Button variant="primary">More Info</Button>
