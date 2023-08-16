@@ -200,6 +200,7 @@ export const MainView = () => {
           />
         </Routes>
       </Row>
+      <Row><footer> MyFlix App all Rights reserved</footer></Row>
     </BrowserRouter>
   );
 };
