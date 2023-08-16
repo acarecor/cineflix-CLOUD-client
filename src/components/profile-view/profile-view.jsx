@@ -95,7 +95,7 @@ export const ProfileView = ({
         <Col xs={12} sm={4}>
           <Card className="mb-3">
             <Card.Body className="mb-3">
-            <h3>Your Info</h3>
+            <h2>Your Info</h2>
           <div>Username: {user.username}</div>
           <div>e-mail: {user.email}</div>
             </Card.Body>

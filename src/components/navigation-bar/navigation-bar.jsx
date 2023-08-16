@@ -4,7 +4,7 @@ import  './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
   return (
-    <Navbar  className="justify-content-between"   data-bs-theme="dark"  expand="lg" >
+    <Navbar  collapseOnSelect sticky="top" className="justify-content-between"   data-bs-theme="dark"  expand="lg" >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <h1>my Flix</h1>
