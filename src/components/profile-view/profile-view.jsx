@@ -6,6 +6,7 @@ import { Modal } from "react-bootstrap";
 
 
 
+
 export const ProfileView = ({
   user,
   updatedUser,
@@ -159,10 +160,10 @@ export const ProfileView = ({
                     <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
                     <Modal.Footer>
                       <Button variant="primary" onClick={handleCloseModal}>
-                        Close
+                        Return
                       </Button>
                       <Button variant="primary" onClick={handleDeleteUser}>
-                        Delete User
+                        Yes, delete my account 
                       </Button>
                       
                     </Modal.Footer>
