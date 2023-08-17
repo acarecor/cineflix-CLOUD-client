@@ -205,7 +205,7 @@ export const MainView = () => {
       </Row>
       </Container>
       <footer>
-        <div>MyFlix App all Rights reserved</div> 
+        <div> 2023 Cineflix</div> 
       </footer>
     </BrowserRouter>
   );
