@@ -2948,23 +2948,23 @@ var _mainView = require("./components/main-view/main-view");
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 var _indexScss = require("./index.scss");
-const MyFlixApplication = ()=>{
+const CineFlixApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
         fileName: "src/index.jsx",
         lineNumber: 10,
         columnNumber: 13
     }, undefined);
 };
-_c = MyFlixApplication;
+_c = CineFlixApplication;
 const container = document.querySelector("#root");
 const root = (0, _client.createRoot)(container);
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CineFlixApplication, {}, void 0, false, {
     fileName: "src/index.jsx",
     lineNumber: 18,
     columnNumber: 13
 }, undefined));
 var _c;
-$RefreshReg$(_c, "MyFlixApplication");
+$RefreshReg$(_c, "CineFlixApplication");
 
   $parcel$ReactRefreshHelpers$98a3.postlude(module);
 } finally {
@@ -27390,7 +27390,7 @@ const MainView = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: "MyFlix App all Rights reserved"
+                    children: " 2023 Cineflix"
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
                     lineNumber: 208,
@@ -77321,8 +77321,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _navigationBarScss = require("./navigation-bar.scss");
-var _logoPng = require("../images/logo.png");
-var _logoPngDefault = parcelHelpers.interopDefault(_logoPng);
+var _logocf2Png = require("../images/logocf2.png");
+var _logocf2PngDefault = parcelHelpers.interopDefault(_logocf2Png);
 const NavigationBar = ({ user, onLoggedOut, handleSearchInput })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
         collapseOnSelect: true,
@@ -77336,9 +77336,9 @@ const NavigationBar = ({ user, onLoggedOut, handleSearchInput })=>{
                     as: (0, _reactRouterDom.Link),
                     to: "/",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: (0, _logoPngDefault.default),
-                        width: "165",
-                        height: "32",
+                        src: (0, _logocf2PngDefault.default),
+                        width: "220",
+                        height: "auto",
                         className: "d-inline-block align top d-flex align-items-start",
                         alt: "my flix logo"
                     }, void 0, false, {
@@ -77466,10 +77466,10 @@ $RefreshReg$(_c, "NavigationBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"d3G0W","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fHBM7","./navigation-bar.scss":"dnXvl","../images/logo.png":"ajVOZ"}],"dnXvl":[function() {},{}],"ajVOZ":[function(require,module,exports) {
-module.exports = require("d03930bf5321faf5").getBundleURL("byUka") + "logo.e1c619cf.png" + "?" + Date.now();
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"d3G0W","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fHBM7","./navigation-bar.scss":"dnXvl","../images/logocf2.png":"6j3zj"}],"dnXvl":[function() {},{}],"6j3zj":[function(require,module,exports) {
+module.exports = require("9ae2bbc43d09d5bb").getBundleURL("byUka") + "logocf2.d878dd00.png" + "?" + Date.now();
 
-},{"d03930bf5321faf5":"itqrM"}],"itqrM":[function(require,module,exports) {
+},{"9ae2bbc43d09d5bb":"itqrM"}],"itqrM":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
