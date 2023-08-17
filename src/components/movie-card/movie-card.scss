@@ -1,4 +1,4 @@
-$primary: rgb(45, 11, 11);
+$primary: rgb(88,36,36);
 $body-bg: rgb(235, 228, 214);
 $secondary: white;
 
@@ -11,7 +11,9 @@ $secondary: white;
     
 }
 
-
+path{
+   fill: $primary;
+}
 .card-header{
     position: relative;
     height: 3em;
