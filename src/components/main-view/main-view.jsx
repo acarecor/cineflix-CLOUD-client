@@ -10,11 +10,6 @@ import { ProfileView } from "../profile-view/profile-view";
 import {
   Row,
   Col,
-  Navbar,
-  Nav,
-  Button,
-  Form,
-  Card,
   Container,
 } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
