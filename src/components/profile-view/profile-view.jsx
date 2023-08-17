@@ -82,10 +82,11 @@ export const ProfileView = ({
       }
     });
 
-    // modal
-    const handleCloseModal = () => setShowModal(false);
-    const handleShowModal = () => setShowModal(true);
   };
+  
+  // modal
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
 
   return (
     <Container>

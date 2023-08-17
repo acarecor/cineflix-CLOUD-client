@@ -5,6 +5,10 @@
   right: 1em;
 }
 
+path {
+  fill: #582424;
+}
+
 .card-header {
   height: 3em;
   position: relative;
