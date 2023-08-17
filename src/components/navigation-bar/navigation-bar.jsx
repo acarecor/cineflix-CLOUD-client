@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import  './navigation-bar.scss';
-import logo from "../images/logo.png";
+import logo from "../images/logocf2.png";
 
 export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
   return (
@@ -10,8 +10,8 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
         <Navbar.Brand as={Link} to="/">
           <img
               src={logo}
-              width='165'
-              height='32'
+              width="220"
+              height="auto"
               className='d-inline-block align top d-flex align-items-start'
               alt='my flix logo'
             />
