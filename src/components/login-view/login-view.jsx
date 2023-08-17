@@ -15,7 +15,7 @@ export const LoginView = ({ onLoggedIn }) => {
       password: password,
     };
 
-    fetch("https://myflix-movies-2a93844126ef.herokuapp.com/login", {
+    fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -83,7 +83,7 @@ export const LoginView = ({ onLoggedIn }) => {
             as={Link}
             to="/signup"
           >
-            <Button variant="secondary" >Create new account</Button>
+            <Button variant="secondary">Create new account</Button>
           </Link>
         </Card.Body>
       </Card>
