@@ -1,13 +1,26 @@
 import { Navbar, Container, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import  './navigation-bar.scss';
+import "./navigation-bar.scss";
+import logo from "../images/logocf2.png";
 
 export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
   return (
-    <Navbar  className="justify-content-between"   data-bs-theme="dark"  expand="lg" >
+    <Navbar
+      collapseOnSelect
+      sticky="top"
+      className="justify-content-between"
+      data-bs-theme="dark"
+      expand="lg"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <h1>my Flix</h1>
+          <img
+            src={logo}
+            width="220"
+            height="auto"
+            className="d-inline-block align top d-flex align-items-start"
+            alt="my flix logo"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -37,7 +50,7 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
                     type="text"
                     placeholder="Search by title"
                     onChange={handleSearchInput}
-                    style= {{background: "black" }}
+                    style={{ background: "black" }}
                   />
                 </Form>
               </>

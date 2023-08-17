@@ -1,5 +1,15 @@
 $primary: rgb(88, 36, 36);
 $body-bg: Oldlace;
-$secondary: rgb(22, 17, 17);
+$secondary: rgb(214, 204, 204);
 
 @import '~bootstrap/scss/bootstrap.scss';
+
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-weight: 400;
+    color: rgb(20, 20, 21);
+    background-color: rgb(181, 155, 155);
+  }
