@@ -4,5 +4,9 @@ $secondary: white;
 
 .navbar {
  background-color: $primary;
+ position: fixed-top;
 }
 
+#basic-navbar-nav  {
+ flex-grow: 0;
+}
