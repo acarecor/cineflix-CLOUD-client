@@ -11,7 +11,7 @@ export const ProfileView = ({
   movies,
   onLoggedOut,
   setUser,
-  movie,
+  
 }) => {
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState("");
@@ -48,13 +48,17 @@ export const ProfileView = ({
       .then((response) => {
         if (response.ok) {
           return (
-            response.json(), alert("User information succesfully changed!")
+            response.json(), alert("User information succesfully changed!"),
+            console.log(updatedUser),
+            setTimeout(function (){
+            location.reload('users');}, 1000)
           );
+          
         }
       })
-      .then((data) => {
-        if (data) {
-          updatedUser(data);
+      .then((user) => {
+        if (user) {
+          updatedUser(user);
         }
       })
       .catch((err) => {
@@ -110,17 +114,18 @@ export const ProfileView = ({
                   <Form.Control
                     type="text"
                     name="Username"
-                    defaultValue={username}
+                    defaultValue={user.username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="password"
                     password="password"
                     defaultValue={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -128,7 +133,7 @@ export const ProfileView = ({
                   <Form.Control
                     type="text"
                     email="email"
-                    defaultValue={email}
+                    defaultValue={user.email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </Form.Group>
@@ -137,7 +142,7 @@ export const ProfileView = ({
                   <Form.Control
                     type="date"
                     birthday="birthday"
-                    defaultValue={birthday}
+                    defaultValue={user.birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                   />
                 </Form.Group>
