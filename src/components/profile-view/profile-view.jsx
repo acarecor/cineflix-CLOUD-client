@@ -48,12 +48,8 @@ export const ProfileView = ({
       .then((response) => {
         if (response.ok) {
           return (
-            response.json(), alert("User information succesfully changed!"),
-            console.log(updatedUser),
-            setTimeout(function (){
-            location.reload('users');}, 1000)
+            response.json(), alert("User information succesfully changed!")
           );
-          
         }
       })
       .then((user) => {
