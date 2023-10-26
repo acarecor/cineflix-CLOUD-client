@@ -32,9 +32,12 @@ export const MovieCard = ({ movie, user, setUser, token }) => {
       .then((response) => response.json())
       .then((data) => {
         setFavoritesMovies(true);
-        user.favoritesMovies.push(movie.id);
-        localStorage.setItem("user", JSON.stringify(user));
-        setUser(user);
+        //user.favoritesMovies.push(movie.id);
+        let updatedUser = {...user}
+        updatedUser.favoritesMovies.push(movie.id);
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        setUser(updatedUser);
+
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -66,8 +69,9 @@ export const MovieCard = ({ movie, user, setUser, token }) => {
         user.favoritesMovies = user.favoritesMovies.filter(
           (id) => id !== movie.id
         );
-        localStorage.setItem("user", JSON.stringify(user));
-        setUser(user);
+        let updatedUser = {...user}
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        setUser(updatedUser);
         Swal.fire({
           position: "top-end",
           icon: "error",
