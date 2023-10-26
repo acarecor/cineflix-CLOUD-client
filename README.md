@@ -1,6 +1,6 @@
-# myFlix React app
+# CINEFLIX React App
 
-myFlix is a client-side application built using React, uses the server-side myFlix Rest API and the database (mongo DB atlas).
+CINEFLIX is a client-side application built using React, uses the server-side myFlix Rest API and the database (mongo DB atlas).
 
 ## Tech Stack used
 
@@ -39,4 +39,4 @@ Profile view
 
 ### Parcel
 
-To test the project using Parsel use in terminal: parcel src/index.html 
+To test the project using Parsel use in terminal: npm start or  parcel src/index.html 
