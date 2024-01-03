@@ -35,7 +35,7 @@ export const ProfileView = ({
     };
 
     fetch(
-      `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}`,
+      `http://18.192.182.97/users/${user.username}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -65,7 +65,7 @@ export const ProfileView = ({
   //Delete a user account function
   const handleDeleteUser = () => {
     fetch(
-      `https://myflix-movies-2a93844126ef.herokuapp.com/users/${user.username}`,
+      `http://18.192.182.97/users/${user.username}`,
       {
         method: "DELETE",
         headers: {

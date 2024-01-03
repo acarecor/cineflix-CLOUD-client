@@ -15,7 +15,7 @@ export const LoginView = ({ onLoggedIn }) => {
       password: password,
     };
 
-    fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/login`, {
+    fetch(`http://18.192.182.97/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

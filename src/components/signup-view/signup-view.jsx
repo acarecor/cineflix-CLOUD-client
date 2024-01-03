@@ -18,7 +18,7 @@ export const SignupView = () => {
     };
 
     //create a new user account
-    fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/users`, {
+    fetch(`http://18.192.182.97/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
