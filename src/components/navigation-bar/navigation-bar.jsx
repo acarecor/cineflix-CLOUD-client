@@ -43,6 +43,9 @@ export const NavigationBar = ({ user, onLoggedOut, handleSearchInput }) => {
                 <Nav.Link as={Link} to="/users">
                   Profile
                 </Nav.Link>
+                <Nav.Link as={Link} to="/images">
+                  Images
+                </Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
                 <Form>
                   <Form.Control
