@@ -43,7 +43,7 @@ export const MainView = () => {
     }
     //fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/movies`, {
     
-    fetch(`http://18.192.182.97/movies`, {
+    fetch(`http://3.67.92.151/movies`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())

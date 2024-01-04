@@ -35,7 +35,7 @@ export const ProfileView = ({
     };
 
     fetch(
-      `http://18.192.182.97/users/${user.username}`,
+      `http://3.67.92.151/users/${user.username}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -65,7 +65,7 @@ export const ProfileView = ({
   //Delete a user account function
   const handleDeleteUser = () => {
     fetch(
-      `http://18.192.182.97/users/${user.username}`,
+      `http://3.67.92.151/users/${user.username}`,
       {
         method: "DELETE",
         headers: {

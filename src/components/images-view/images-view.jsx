@@ -15,7 +15,7 @@ export const ImageView = ({token}) => {
           // Define la función para obtener la lista de imágenes
           const fetchImages = async () => {
             try {
-              const response = await fetch('http://18.192.182.97/images', {
+              const response = await fetch('http://3.67.92.151/images', {
                 method: 'GET',
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ export const ImageView = ({token}) => {
           const formData = new FormData();
           formData.append("image", imageFile);
     
-          const response = await fetch("http://18.192.182.97/images", {
+          const response = await fetch("http://3.67.92.151/images", {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
             body: formData,
