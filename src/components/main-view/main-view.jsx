@@ -214,11 +214,21 @@ export const MainView = () => {
             <Route 
               path="/images" 
               element={
-                <Col md={5}>
-                  <ImageView 
-                  token={token}
-                  />
-                </Col>} />
+                <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                 ) : (
+                  <>
+                  <Col md={5}>
+                    <ImageView 
+                      token={token}
+                     />
+                   </Col>
+                  </>
+                 )}
+                 </>
+              }
+            />
           </Routes>
         </Row>
       </Container>
