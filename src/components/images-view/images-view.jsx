@@ -65,18 +65,17 @@ export const ImageView = ({token}) => {
     
           if (response.ok) {
             alert("Image upload successful!");
-            // Optionally, handle the response or update the UI as needed
+            
           } else {
             alert("Image upload failed!");
-            // Optionally, handle the error or update the UI as needed
+            
           }
         } catch (error) {
           console.error("Error uploading image:", error);
-          // Handle the error or update the UI as needed
+        
         }
       };
-      // Después de subir la imagen, actualiza el estado 'images' con la nueva lista
-    
+     
 
     const renderSelectedImage = () => {
         if (selectedImage) {
