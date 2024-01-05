@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Container, Form, Button, ListGroup, Image } from 'react-bootstrap';
+import { Row, Col, Container, Form, Button, ListGroup } from 'react-bootstrap';
 
 
 export const ImageView = ({token}) => {
@@ -57,9 +57,12 @@ export const ImageView = ({token}) => {
           const formData = new FormData();
           formData.append("image", imageFile);
     
-          const response = await fetch("http://3.67.92.151/images", {
+          const response = await fetch("http://3.67.92.151/images", formData, 
+          {
             method: "POST",
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { 
+              Authorization: `Bearer ${token}` ,
+              'Content-Type': 'multipart/form-data' },
             body: formData,
           });
     
