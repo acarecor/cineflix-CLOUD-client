@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Row, Col, Container, Form, Button, ListGroup } from 'react-bootstrap';
 
+const URL = 'http://18.196.245.130';
 
 export const ImageView = ({token}) => {
     const [images, setImages] = useState([]);
@@ -15,7 +16,7 @@ export const ImageView = ({token}) => {
           // Define la función para obtener la lista de imágenes
           const fetchImages = async () => {
             try {
-              const response = await fetch('http://3.67.92.151/images', {
+              const response = await fetch(`${URL}/images`, {
                 method: 'GET',
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -49,17 +50,17 @@ export const ImageView = ({token}) => {
       const imageFile = event.target.elements.formFile.files[0];
     
         if (!imageFile) {
-          alert("Please select an image to upload.");
+          alert('Please select an image to upload.');
           return;
         }
     
         try {
           const formData = new FormData();
-          formData.append("image", imageFile);
+          formData.append('image', imageFile);
     
-          const response = await fetch("http://3.67.92.151/images", formData, 
+          const response = await fetch(`${URL}/images`, formData, 
           {
-            method: "POST",
+            method: 'POST',
             headers: { 
               Authorization: `Bearer ${token}` ,
               'Content-Type': 'multipart/form-data' },
@@ -67,14 +68,14 @@ export const ImageView = ({token}) => {
           });
     
           if (response.ok) {
-            alert("Image upload successful!");
+            alert('Image upload successful!');
             
           } else {
-            alert("Image upload failed!");
+            alert('Image upload failed!');
             
           }
         } catch (error) {
-          console.error("Error uploading image:", error);
+          console.error('Error uploading image:', error);
         
         }
       };
@@ -86,7 +87,7 @@ export const ImageView = ({token}) => {
             <div>
               <h3>Selected Image</h3>
               <img
-                src={`http://18.192.182.97/images/${selectedImage.objectKey}`} // Ajusta la URL según tu lógica de la API
+                src={`${URL}/images/${selectedImage.objectKey}`} // Ajusta la URL según tu lógica de la API
                 alt={selectedImage.objectKey}
               />
             </div>

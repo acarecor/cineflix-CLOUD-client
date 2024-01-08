@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+const URL = 'http://18.196.245.130';
+
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -15,7 +17,7 @@ export const LoginView = ({ onLoggedIn }) => {
       password: password,
     };
 
-    fetch(`http://3.67.92.151/login`, {
+    fetch(`${URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

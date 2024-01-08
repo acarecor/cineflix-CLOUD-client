@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, Card, Container, Form, Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { Modal } from "react-bootstrap";
+const URL = 'http://18.196.245.130';
 
 export const ProfileView = ({
   user,
@@ -35,7 +36,7 @@ export const ProfileView = ({
     };
 
     fetch(
-      `http://3.67.92.151/users/${user.username}`,
+      `${URL}/users/${user.username}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -65,7 +66,7 @@ export const ProfileView = ({
   //Delete a user account function
   const handleDeleteUser = () => {
     fetch(
-      `http://3.67.92.151/users/${user.username}`,
+      `${URL}/users/${user.username}`,
       {
         method: "DELETE",
         headers: {

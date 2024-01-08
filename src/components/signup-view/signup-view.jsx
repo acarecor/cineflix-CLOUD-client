@@ -6,6 +6,7 @@ export const SignupView = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
+  const URL = 'http://18.196.245.130';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +19,7 @@ export const SignupView = () => {
     };
 
     //create a new user account
-    fetch(`http://3.67.92.151/users`, {
+    fetch(`${URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
