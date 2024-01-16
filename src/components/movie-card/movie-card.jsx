@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { GoHeart } from "react-icons/go";
 import { FcLike } from "react-icons/fc";
 import Swal from "sweetalert2";
-const URL = 'http://18.196.245.130';
+const apiURL = 'http://3.124.4.202';
 
 import "./movie-card.scss";
 
@@ -22,7 +22,7 @@ export const MovieCard = ({ movie, user, setUser, token }) => {
   const addFav = (event) => {
     event.preventDefault();
     fetch(
-      `${URL}/users/${user.username}/movies/${movie.id}`,
+      `${apiURL}/users/${user.username}/movies/${movie.id}`,
       {
         method: "POST",
         headers: {
@@ -56,7 +56,7 @@ export const MovieCard = ({ movie, user, setUser, token }) => {
   //remove movie from user list
   const removeFav = () => {
     fetch(
-      `${URL}/users/${user.username}/movies/${movie.id}`,
+      `${apiURL}/users/${user.username}/movies/${movie.id}`,
       {
         method: "DELETE",
         headers: {

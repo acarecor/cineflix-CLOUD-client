@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-const URL = 'http://18.196.245.130';
+const apiURL = 'http://3.124.4.202';
 
 
 export const LoginView = ({ onLoggedIn }) => {
@@ -17,7 +17,7 @@ export const LoginView = ({ onLoggedIn }) => {
       password: password,
     };
 
-    fetch(`${URL}/login`, {
+    fetch(`${apiURL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

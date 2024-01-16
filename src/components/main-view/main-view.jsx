@@ -7,7 +7,7 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 import { ImageView } from "../images-view/images-view";
-const URL = 'http://18.196.245.130';
+const apiURL = 'http://3.124.4.202';
 
 import {
   Row,
@@ -44,7 +44,7 @@ export const MainView = () => {
     }
     //fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/movies`, {
     
-    fetch(`${URL}/movies`, {
+    fetch(`${apiURL}/movies`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
