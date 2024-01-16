@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Container, Form, Button, ListGroup, Image, Modal } from 'react-bootstrap';
+import { Row, Col, Container, Form, Button, ListGroup, Image, Modal, Link } from 'react-bootstrap';
 
 const apiURL = 'http://3.124.4.202';
 
@@ -132,21 +132,21 @@ export const ImageView = () => {
         </Row>
         <Row>
         {imagePreview && (
-         <div>
+         <div className="d-flex justify-content-center mt-1">
             <Image
                 src={imagePreview}
                 alt="Uploaded Preview"
                 className="mt-2 mb-2 ms-2"
                 thumbnail
             />
-         <a
+         <Link
             href={imagePreview}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 mb-2 ms-2"
         >
-            Open Original Image
-        </a>
+            <Button variant="primary">Open Original Image</Button>
+        </Link>
         </div>
         )}
         </Row>
@@ -156,6 +156,7 @@ export const ImageView = () => {
             <ListGroup>
               {images.map((image, index) => (
                 <ListGroup.Item key={index}>
+                  <Col className="mb-5 mt-2"  md={6} lg={4}>
                   <img
                       src={`data:${image.contentType};base64,${image.content}`}
                       style={{ maxWidth: '50px', cursor: 'pointer' }}
@@ -163,12 +164,33 @@ export const ImageView = () => {
                       onClick={() => handleImageClick(image)}
                       />
                   <h4>{image.name}</h4>
-                  <Button onClick={() => downloadImage(image)}>Download Image</Button>
+                  <Button style={{ cursor: "pointer" }} variant="primary" onClick={() => downloadImage(image)}>Download Image</Button>
+                  </Col>
                 </ListGroup.Item>
               ))}
+              
             </ListGroup>
           </Col>
         </Row> 
+        <Modal show={showModal} onHide={closeModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedImage && selectedImage.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedImage && (
+            <Image
+              src={`${apiURL}/images/${selectedImage.name}`}
+              alt={selectedImage.name}
+              fluid
+            />
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       </Container>
     )};
   
