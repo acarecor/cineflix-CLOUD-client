@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Container, Form, Button, ListGroup, Image, Modal, Link } from 'react-bootstrap';
+import { Row, Col, Container, Form, Button, ListGroup, Image, Modal } from 'react-bootstrap';
 
 const apiURL = 'http://3.124.4.202';
 
@@ -139,14 +139,14 @@ export const ImageView = () => {
                 className="mt-2 mb-2 ms-2"
                 thumbnail
             />
-         <Link
+         <a
             href={imagePreview}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 mb-2 ms-2"
         >
             <Button variant="primary">Open Original Image</Button>
-        </Link>
+        </a>
         </div>
         )}
         </Row>
