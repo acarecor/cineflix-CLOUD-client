@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Container, Form, Button, ListGroup } from 'react-bootstrap';
+import { Row, Col, Container, Form, Button, ListGroup, Image, Modal } from 'react-bootstrap';
 
-const URL = 'http://18.196.245.130';
+const apiURL = 'http://3.124.4.202';
 
-export const ImageView = ({token}) => {
+export const ImageView = () => {
+    const [file, setFile] = useState(null);
     const [images, setImages] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [imagePreview, setImagePreview] = useState(null);
+    const [showModal, setShowModal] = useState(false);
   
     useEffect(() => {
-        if (!token) {
-            return;
-          }
+        //if (!token) {
+          //  return;
+         // }
       
-          // Define la función para obtener la lista de imágenes
+          //  Define the function to obtein the list from the s3 bucket
           const fetchImages = async () => {
             try {
-              const response = await fetch(`${URL}/images`, {
+              const response = await fetch(`${apiURL}/images`, {
                 method: 'GET',
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                  'Content-Type': 'application/json',
-                },
               });
       
               if (response.ok) {
                 const data = await response.json();
-                setImages(data); // Almacena las imágenes en el estado local
+                setImages(data); 
+                console.log(data);// Almacena las imágenes en el estado local
               } else {
                 console.error('Error fetching images:', response.statusText);
               }
@@ -35,82 +35,94 @@ export const ImageView = ({token}) => {
             }
           };
       
-          // Llama a la función para obtener la lista de imágenes
+          // Call the function to optain images list from s3 bucket
           fetchImages();
-        }, [token]);
-   
+        }, []);
+
+    const reloadPage = () => {
+      window.location.reload();
+    };
+    
+    //upload images   
+
   
-    const handleImageClick = (image) => {
-        setSelectedImage(image);
-        };
-  
-    const handleImageUpload = async (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
       
-      const imageFile = event.target.elements.formFile.files[0];
+      //const files = event.target.elements.formFile.files[0];
     
-        if (!imageFile) {
+        if (!file) {
+          console.log('Please select an image to upload.');
           alert('Please select an image to upload.');
           return;
         }
     
-        try {
-          const formData = new FormData();
-          formData.append('image', imageFile);
+  
+        const formData = new FormData();
+        formData.append('file', file);
     
-          const response = await fetch(`${URL}/images`, formData, 
-          {
-            method: 'POST',
-            headers: { 
-              Authorization: `Bearer ${token}` ,
-              'Content-Type': 'multipart/form-data' },
-            body: formData,
-          });
+        const response = await fetch(`${apiURL}/images`, 
+        {
+          method: 'POST',
+          //headers: { 
+            //Authorization: `Bearer ${token}` , 
+            //'Content-Type': 'multipart/form-data'
+          //},
+          body: formData,
+        });
     
-          if (response.ok) {
-            alert('Image upload successful!');
-            
+        if (response.ok) {
+          const imageData = await response.json();
+          console.log("Upload successful", imageData);
+           // alert('Image upload successful!');
+           reloadPage();
           } else {
             alert('Image upload failed!');
-            
-          }
-        } catch (error) {
-          console.error('Error uploading image:', error);
-        
+            console.log(event); 
         }
       };
-     
 
-    const renderSelectedImage = () => {
-        if (selectedImage) {
-          return (
-            <div>
-              <h3>Selected Image</h3>
-              <img
-                src={`${URL}/images/${selectedImage.objectKey}`} // Ajusta la URL según tu lógica de la API
-                alt={selectedImage.objectKey}
-              />
-            </div>
-          );
-        }
-        return null;
-    };
-
+    const handleFileChange = (event) => {
+      const selectedFile = event.target.files && event.target.files[0];
+      setFile(selectedFile);
     
+      const previewURL = selectedFile ? URL.createObjectURL(selectedFile) : null;
+      setImagePreview(previewURL);
+  }
+
+  const downloadImage = (image) => {
+    const link = document.createElement('a');
+    link.href = `${apiURL}/images/${image.name}`;
+    link.download = image.name;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleImageClick = (image) => {
+    setShowModal(true);
+    setSelectedImage(image);
+  };
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedImage(null);
+  };
+
+   
   
     return (
       <Container>
         <Row className="mt-4">
           <Col>
             <h2>Upload Images</h2>
-            <Form onSubmit={handleImageUpload}>
+            <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Pick an image to upload:</Form.Label>
                 <Form.Control 
                     type="file" 
                     accept="image/*" 
-                    name="formFile"
-                    onChange={(e) => console.log(e.target.files[0])} />
+                    name="file"
+                    onChange={handleFileChange} />
               </Form.Group>
               <Button variant="primary" type="submit">
                 Upload Image
@@ -118,22 +130,45 @@ export const ImageView = ({token}) => {
             </Form>
           </Col>
         </Row>
+        <Row>
+        {imagePreview && (
+         <div>
+            <Image
+                src={imagePreview}
+                alt="Uploaded Preview"
+                className="mt-2 mb-2 ms-2"
+                thumbnail
+            />
+         <a
+            href={imagePreview}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 mb-2 ms-2"
+        >
+            Open Original Image
+        </a>
+        </div>
+        )}
+        </Row>
         <Row className="mt-4">
           <Col>
             <h2> List of Uploaded Images</h2>
             <ListGroup>
-              {images.map((image) => (
-                <ListGroup.Item key={image.objectKey}
-                onClick={()=> handleImageClick(image)}>
-                  {image.objectKey}
+              {images.map((image, index) => (
+                <ListGroup.Item key={index}>
+                  <img
+                      src={`data:${image.contentType};base64,${image.content}`}
+                      style={{ maxWidth: '50px', cursor: 'pointer' }}
+                      thumbnail
+                      onClick={() => handleImageClick(image)}
+                      />
+                  <h4>{image.name}</h4>
+                  <Button onClick={() => downloadImage(image)}>Download Image</Button>
                 </ListGroup.Item>
               ))}
             </ListGroup>
-            {renderSelectedImage()}
           </Col>
-        </Row>
-       
+        </Row> 
       </Container>
-    );
-  };
+    )};
   
