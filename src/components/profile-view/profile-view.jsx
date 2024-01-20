@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Button, Card, Container, Form, Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { Modal } from "react-bootstrap";
-const apiURL = 'http://3.124.4.202';
+const apiURL = 'http://CF-MovieApp-LoadBalancer-913807924.eu-central-1.elb.amazonaws.com';
+
 
 export const ProfileView = ({
   user,

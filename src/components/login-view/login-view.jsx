@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-const apiURL = 'http://3.124.4.202';
+const apiURL = 'http://CF-MovieApp-LoadBalancer-913807924.eu-central-1.elb.amazonaws.com';
 
 
 export const LoginView = ({ onLoggedIn }) => {

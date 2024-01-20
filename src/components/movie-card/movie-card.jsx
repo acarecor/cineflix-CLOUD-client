@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { GoHeart } from "react-icons/go";
 import { FcLike } from "react-icons/fc";
 import Swal from "sweetalert2";
-const apiURL = 'http://3.124.4.202';
+const apiURL = 'http://CF-MovieApp-LoadBalancer-913807924.eu-central-1.elb.amazonaws.com';
 
 import "./movie-card.scss";
 
