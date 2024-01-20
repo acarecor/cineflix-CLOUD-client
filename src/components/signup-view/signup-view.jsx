@@ -6,7 +6,7 @@ export const SignupView = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
-  const apiURL = 'http://3.124.4.202';
+  const apiURL = 'http://CF-MovieApp-LoadBalancer-913807924.eu-central-1.elb.amazonaws.com';
 
   const handleSubmit = (event) => {
     event.preventDefault();

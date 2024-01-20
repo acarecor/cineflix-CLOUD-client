@@ -7,7 +7,7 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 import { ImageView } from "../images-view/images-view";
-const apiURL = 'http://3.124.4.202';
+const apiURL = 'http://CF-MovieApp-LoadBalancer-913807924.eu-central-1.elb.amazonaws.com';
 
 import {
   Row,
@@ -24,6 +24,7 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
+  
 
   const updatedUser = (user) => {
     setUser(user);
@@ -42,7 +43,7 @@ export const MainView = () => {
     if (!token) {
       return;
     }
-    //fetch(`https://myflix-movies-2a93844126ef.herokuapp.com/movies`, {
+    
     
     fetch(`${apiURL}/movies`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -89,7 +90,6 @@ export const MainView = () => {
     setFilteredMovies(tempArray);
   };
 
-  //added grid to the main view
 
   return (
     <BrowserRouter>
@@ -220,9 +220,9 @@ export const MainView = () => {
                   <Navigate to="/login" replace />
                  ) : (
                   <>
-                  <Col md={5}>
+                  <Col >
                     <ImageView 
-                      token={token}
+                      
                      />
                    </Col>
                   </>
@@ -234,7 +234,7 @@ export const MainView = () => {
         </Row>
       </Container>
       <footer>
-        <div> 2023 Cineflix</div>
+        <div> 2024 Cineflix</div>
       </footer>
     </BrowserRouter>
   );
